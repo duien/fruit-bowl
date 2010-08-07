@@ -1,0 +1,243 @@
+body
+  background-color: #fff
+  color: #333
+  padding: 0
+  margin: 0
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size: 13px
+  line-height: 18px
+
+p, ol, ul, td
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size: 13px
+  line-height: 18px
+
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: 11px
+  font-family: 'Consolas', sans-serif
+
+a
+  color: #000
+  &:visited
+    color: #666
+  &:hover
+    color: #fff
+    background-color: #000
+
+/*********************************************************
+/*                     HEADER AND MENU
+/*********************************************************
+
+div#header
+  clear: both
+  padding: 20px
+  padding-bottom: 50px
+
+ul#menu
+  padding: 0
+  margin: 0
+  float: left
+  li
+    color: white
+    font-family: "Gill Sans"
+    font-size: 150%
+    font-weight: bold
+    display: inline
+    a
+      display: block
+      color: white
+      text-decoration: none
+      float: left
+      padding: 5px 20px
+      border-top: 2px solid black
+      border-bottom: 2px solid black
+    &.root a
+      background: #b3b3b3
+      border-color: #b3b3b3
+      border-left: 2px solid #b3b3b3
+      &:hover
+        color: #b3b3b3
+    &.blog a
+      background: #999999
+      border-color: #999999
+      &:hover
+        color: #999999
+    &.twitter a
+      background: #34ccff
+      border-color: #34ccff
+      &:hover
+        color: #34ccff
+    &.delicious a
+      background: #2d6abe
+      border-color: #2d6abe
+      &:hover
+        color: #2d6abe
+    &.flickr a
+      background: #fc1c84
+      border-color: #fc1c84
+      &:hover
+        color: #fc1c84
+    &.reader a
+      background: #fb8417
+      border-color: #fb8417
+      border-right: 2px solid #fb8417
+      &:hover
+        color: #fb8417
+    a:hover
+      background: white
+
+/*********************************************************
+/*                 MAIN CONTENT
+/*********************************************************
+
+div
+  &#main
+    clear: both
+  &.content
+    margin: 20px
+    margin-left: 40px
+    max-width: 66em
+  &#main h1.link
+    float: right
+    border: none
+    a
+      text-decoration: none
+      &:hover
+        background: transparent
+        font-style: italic
+  &#footer
+    border-top: 2px solid black
+    .content
+      margin-top: 10px
+
+h1
+  border-bottom: 2px solid black
+  margin: 0
+  padding: 10px 20px
+  font-family: "Gill Sans Ultra Bold"
+
+img
+  &.left
+    float: left
+    padding-right: 30px
+  &.right
+    float: right
+    padding-left: 30px
+
+.post, .tweet, .bookmark, .photos
+  padding-bottom: 20px
+
+div.header
+  margin-left: -40px
+  border-left: 20px solid black
+  padding-left: 20px
+  h2
+    padding: 0
+    margin: 0
+    line-height: 1.2
+
+p.meta
+  padding: 0
+  margin: 0
+
+.tag
+  background: #eeeeee
+  padding: 0 3px
+
+/*********************************************************
+/*              PER-TYPE STYLING
+/*********************************************************
+
+/******  ALL *******
+
+div
+  &.all
+    h1
+      border-color: #b3b3b3
+      color: #b3b3b3
+      &.link a
+        color: #b3b3b3
+    #footer
+      border-color: #b3b3b3
+  &.blog
+    h1
+      border-color: #999999
+      color: #999999
+      &.link a
+        color: #999999
+    #footer
+      border-color: #999999
+
+/******  BLOG *******
+
+.post div.header
+  border-color: #999999
+  p.meta
+    color: #999999
+
+/******  TWITTER *******
+
+div.twitter
+  h1
+    border-color: #34ccff
+    color: #34ccff
+    &.link a
+      color: #34ccff
+  #footer
+    border-color: #34ccff
+
+.tweet div.header
+  border-color: #34ccff
+  p.meta
+    color: #34ccff
+
+/******  DELICIOUS *******
+
+div.delicious
+  h1
+    border-color: #2d6abe
+    color: #2d6abe
+    &.link a
+      color: #2d6abe
+  #footer
+    border-color: #2d6abe
+
+.bookmark div.header
+  border-color: #2d6abe
+  p.meta
+    color: #2d6abe
+
+/******  FLICKR *******
+
+div.flickr
+  h1
+    border-color: #fc1c84
+    color: #fc1c84
+    &.link a
+      color: #fc1c84
+  #footer
+    border-color: #fc1c84
+
+.photo
+  div.header
+    border-color: #fc1c84
+    p.meta
+      color: #fc1c84
+  img
+    padding-bottom: 24px
+    padding-top: 10px
+
+/****** READER *****
+
+div.reader
+  h1
+    border-color: #fb8417
+    color: #fb8417
+    &.link a
+      color: #fb8417
+  #footer
+    border-color: #fb8417
+
+/******  ADMIN *******

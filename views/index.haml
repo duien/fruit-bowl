@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title something
+    %link{ :rel => 'stylesheet', :type => 'text/css', :href => '/style.css' }
+  %body
+    #header
+      %ul#menu
+        %li.root
+          %a{ :href => '/' } duien.com
+        %li.blog
+          %a{ :href => '/blog' } blog
+        %li.twitter
+          %a{ :href => '/twitter' } twitter
+        %li.delicious
+          %a{ :href => '/delicious' } delicious
+        %li.flickr
+          %a{ :href => '/flickr' } flickr
+        %li.reader
+          %a{ :href => '/reader' } reader
+    #main{ :class => @type }
+      %h1= header_for_type(@type)
+      .content
+        - @items.each do |item|
+          = haml :"_#{item._type.underscore}", :locals => { item.type.underscore.to_sym => item }
