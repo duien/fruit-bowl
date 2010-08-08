@@ -29,13 +29,13 @@ class FruitBowl < Sinatra::Base
   end
 
   get '/' do
-    @items = Item.by_date.limit(20)
-    @type = :all
+    @items = Item.by_date.limit(10)
+    @type = :everything
     haml :index
   end
 
   get '/blog/?' do
-    @items = Post.by_date.limit(20)
+    @items = Post.by_date.limit(10)
     @type = :blog
     haml :index
   end
@@ -47,7 +47,7 @@ class FruitBowl < Sinatra::Base
   end
 
   get '/twitter/?' do
-    @items = Tweet.by_date.limit(20)
+    @items = Tweet.by_date.limit(10)
     @type = :twitter
     haml :index
   end
@@ -59,17 +59,23 @@ class FruitBowl < Sinatra::Base
 
   private
 
-  def header_for_type(type)
-    case type
-    when :all
-      "<span style='color: #999999'>ev</span><span style='color: #34ccff'>er</span><span style='color: #2d6abe'>yt</span><span style='color: #fc1c84'>hi</span><span style='color: #fb8417'>ng</span>"
-    else
-      type.to_s
+  def site_link(site)
+    case site
+    when :blog
+      '/blog'
+    when :twitter
+      'http://twitter.com/duien'
+    when :delicious
+      'http://delicious.com/duien'
+    when :flickr
+      'http://flickr.com/photos/duien'
+    when :reader
+      'http://www.google.com/reader/shared/price.emily'
     end
   end
 
   def format_date(date)
-    date ? date.strftime('%Y-%m-%d %H:%M') : "UNPUBLISHED"
+    date ? date.strftime('%b %d, %Y') : "UNPUBLISHED"
   end
 
 end

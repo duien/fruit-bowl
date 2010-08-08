@@ -1,13 +1,13 @@
 !!!
 %html
-  %head
-    %title something
-    %link{ :rel => 'stylesheet', :type => 'text/css', :href => '/style.css' }
-  %body
-    #header
-      %ul#menu
-        %li.root
-          %a{ :href => '/' } duien.com
+  %link{ :rel => 'stylesheet', :type => 'text/stylesheet', :href => '/style.css' }
+  %title Fruit Bowl
+%body{ :class => @type }
+  .clipper
+    #navigation
+      %ul
+        %li.main
+          %a{ :href => '/' } everything
         %li.blog
           %a{ :href => '/blog' } blog
         %li.twitter
@@ -18,7 +18,26 @@
           %a{ :href => '/flickr' } flickr
         %li.reader
           %a{ :href => '/reader' } reader
-    #main{ :class => @type }
-      %h1= header_for_type(@type)
-      .content
-        = yield
+  .clipper
+    #header
+      #title
+        %h1
+          %span.site duien.com
+          - unless @type == :everything
+            \/ 
+            %a{ :href => site_link(@type) }= @type
+  #main
+    .clipper
+      .top
+    = yield
+  #footer
+    .content
+      %p
+        Created by Emily Price with
+        = succeed ',' do
+          %a{ :href => 'http://www.ruby-lang.org/' } Ruby
+        = succeed ',' do
+          %a{ :href => 'http://www.sinatrarb.com/' } Sinatra
+        and
+        %a{ :href => 'http://www.mongodb.org/' } MongoDB
+

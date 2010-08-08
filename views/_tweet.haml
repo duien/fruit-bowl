@@ -1,0 +1,13 @@
+.item.tweet
+  .banner
+    .clipper
+      .title
+        %h2= tweet.body
+    .clipper
+      .metadata
+        .meta 
+          %span.date= format_date(tweet.published_at)
+          \//
+          %a{ :href => "http://twitter.com/duien/status/#{tweet.status_id}" } on twitter
+  .clipper
+    .body

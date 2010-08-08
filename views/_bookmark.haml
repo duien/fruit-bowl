@@ -1,0 +1,18 @@
+.item.bookmark
+  .banner
+    .clipper
+      .title
+        %h2= bookmark.title
+    .clipper
+      .metadata
+        .meta
+          %span.date= format_date(bookmark.published_at)
+          \//
+          %a{ :href => bookmark.href } view
+          \//
+          %a{ :href => "http://delicious.com/url/#{post.url_hash}" } on delicious
+        .tags
+          - bookmark.tags.each do |tag|
+            %span.tag= tag
+  .clipper
+    .body= bookmark.body
