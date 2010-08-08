@@ -1,6 +1,7 @@
 $KCODE = "U"
 require 'logger'
 require 'sinatra/base'
+require 'active_support'
 require 'haml'
 require 'mongo_mapper'
 Dir['lib/*'].each{ |file| require file }
@@ -27,13 +28,25 @@ class FruitBowl < Sinatra::Base
   end
 
   get '/' do
-    @items = Item.by_date
+    @items = Item.by_date.limit(20)
     @type = :all
     haml :index
   end
 
+  get '/blog/?' do
+    @items = Post.by_date.limit(20)
+    @type = :blog
+    haml :index
+  end
+
+  get '/blog/:stub' do |stub|
+    @item = Post.first(:stub => stub)
+    @type = :blog
+    haml :show
+  end
+
   get '/twitter/?' do
-    @items = Tweet.by_date
+    @items = Tweet.by_date.limit(20)
     @type = :twitter
     haml :index
   end
@@ -52,6 +65,10 @@ class FruitBowl < Sinatra::Base
     else
       type.to_s
     end
+  end
+
+  def format_date(date)
+    date ? date.strftime('%Y-%m-%d %H:%M') : "UNPUBLISHED"
   end
 
 end
