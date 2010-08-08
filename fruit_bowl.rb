@@ -1,3 +1,4 @@
+$KCODE = "U"
 require 'logger'
 require 'sinatra/base'
 require 'haml'
@@ -13,6 +14,11 @@ class FruitBowl < Sinatra::Base
     enable :static
     enable :show_exceptions if development?
   end
+
+  before do
+    content_type :html, 'charset' => 'utf-8'
+  end
+  
 
   if defined?(PhusionPassenger)
     PhusionPassenger.on_event(:starting_worker_process) do |forked|
