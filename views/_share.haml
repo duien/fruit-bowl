@@ -17,6 +17,7 @@
           
   .clipper
     .body
-      .content
-        = share.body
+      - if share.body and not share.body.empty?
+        .content
+          = share.body
 
