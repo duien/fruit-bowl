@@ -20,6 +20,8 @@ class FruitBowl < Sinatra::Base
 
   before do
     content_type :html, 'charset' => 'utf-8'
+    params[:per_page] = params[:per_page] ? params[:per_page].to_i : 10
+    params[:page] = params[:page] ? params[:page].to_i : 0
   end
   
 
@@ -30,13 +32,13 @@ class FruitBowl < Sinatra::Base
   end
 
   get '/' do
-    @items = Item.by_date.limit(10)
+    @items = Item.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :everything
     haml :index
   end
 
   get '/blog/?' do
-    @items = Post.by_date.limit(10)
+    @items = Post.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :blog
     haml :index
   end
@@ -49,13 +51,13 @@ class FruitBowl < Sinatra::Base
   end
 
   get '/twitter/?' do
-    @items = Tweet.by_date.limit(10)
+    @items = Tweet.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :twitter
     haml :index
   end
 
   get '/delicious/?' do
-    @items = Bookmark.by_date.limit(10)
+    @items = Bookmark.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :delicious
     haml :index
   end
