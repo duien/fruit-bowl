@@ -1,6 +1,11 @@
 @import 'grid'
 @import 'round'
 
+=shadow($color)
+  -moz-box-shadow: 0 0 5px $color
+  -webkit-box-shadow: 0 0 5px $color
+  box-shadow: 0 0 5px $color
+
 address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul
   margin: 0
   padding: 0
@@ -43,7 +48,7 @@ body
 
 #header
   +row
-  -webkit-box-shadow: 0 0 5px darken($main, 10%)
+  +shadow(darken($main, 10%))
   +round_bottom(5px)
   background: mix($main, white)
   margin-bottom: 10px
@@ -60,12 +65,12 @@ body
       border-bottom: 3px solid
 #navigation
   +row
-  -webkit-box-shadow: 0 0 5px darken($main, 10%)
+  +shadow(darken($main, 10%))
   background: mix($main, white)
   font-family: sans-serif
-  // padding-top: 10px
   margin-top: 10px
   +round_top(5px)
+  overflow: hidden
   ul
     li
       +column
@@ -125,7 +130,7 @@ body
   .top
     +row
     +round_top(5px)
-    -webkit-box-shadow: 0 0 5px darken($main, 10%)
+    +shadow(darken($main, 10%))
     min-height: 20px
     margin-top: 10px
     background: mix($main, white)
@@ -165,7 +170,7 @@ body
             
     .body
       +row
-      -webkit-box-shadow: 0 0 5px darken($main, 10%)
+      +shadow(darken($main, 10%))
       min-height: 20px
       background: mix($main, white)
       .content
@@ -178,7 +183,7 @@ body
         background: $blog
         .title, .metadata
           background: mix($blog, white)
-          -webkit-box-shadow: 0 0 5px darken($blog, 10%)
+          +shadow(darken($blog, 10%))
           .meta
             color: $blog
           span.tag
@@ -189,7 +194,7 @@ body
         background: $twitter
         .title, .metadata
           background: mix($twitter, white)
-          -webkit-box-shadow: 0 0 5px darken($twitter, 10%)
+          +shadow(darken($twitter, 10%))
           .meta
             color: $twitter
     &.bookmark
@@ -197,7 +202,7 @@ body
         background: $delicious
         .title, .metadata
           background: mix($delicious, white)
-          -webkit-box-shadow: 0 0 5px darken($delicious, 10%)
+          +shadow(darken($delicious, 10%))
           .meta
             color: $delicious
           span.tag
@@ -207,7 +212,7 @@ body
         background: $flickr
         .title, .metadata
           background: mix($flickr, white)
-          -webkit-box-shadow: 0 0 5px darken($flickr, 10%)
+          +shadow(darken($flickr, 10%))
           .meta
             color: $flickr
           span.tag
@@ -222,7 +227,7 @@ body
 #footer
   +row
   +round_top(5px)
-  -webkit-box-shadow: 0 0 5px darken($main, 10%)
+  +shadow(darken($main, 10%))
   background: mix($main, white)
   padding-top: 10px
   padding-bottom: 10px
