@@ -68,6 +68,12 @@ class FruitBowl < Sinatra::Base
     haml :index
   end
 
+  get '/reader/?' do
+    @items = Share.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
+    @type = :reader
+    haml :index
+  end
+
   get '/:file.css' do |file|
     content_type 'text/css'
     sass :"sass/#{file}"
