@@ -39,7 +39,7 @@ end
 
 task :copy_config do
   run "mkdir -p #{release_path}/config"
-  run "cp /home/deploymeister/configuration/fruit-bowl-authentication.yml #{release_path}/config/authentication.yml"
+  run "cp /home/deploymeister/configuration/fruit-bowl/*.yml #{release_path}/config/"
 end
 
 after 'deploy:finalize_update', 'copy_config'
