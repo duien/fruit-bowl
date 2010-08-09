@@ -1,7 +1,12 @@
 !!!
 %html
   %link{ :rel => 'stylesheet', :type => 'text/stylesheet', :href => '/style.css' }
-  %title Fruit Bowl
+  %title
+    duien.com
+    - unless @type == :everything
+      = "/ #{@type}"
+      - if @item
+        = "/ #{@item.title}"
 %body{ :class => @type }
   .clipper
     #navigation
