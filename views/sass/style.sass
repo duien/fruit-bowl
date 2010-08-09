@@ -202,6 +202,20 @@ body
             color: $delicious
           span.tag
             background: mix(white, mix(white, $delicious))
+    &.photo
+      .banner
+        background: $flickr
+        .title, .metadata
+          background: mix($flickr, white)
+          -webkit-box-shadow: 0 0 5px darken($flickr, 10%)
+          .meta
+            color: $flickr
+          span.tag
+            background: mix(white, mix(white, $flickr))
+      .body
+        img
+          float: left
+          margin-right: 10px
     &:last-child > .clipper > .body
       +round_bottom(5px)
       margin-bottom: 20px

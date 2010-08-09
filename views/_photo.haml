@@ -1,0 +1,20 @@
+.item.photo
+  .banner
+    .clipper
+      .title
+        %h2= photo.title.blank? ? 'Untitled' : photo.title
+    .clipper
+      .metadata
+        .meta
+          %span.date= format_date(photo.published_at)
+          \//
+          %a{ :href => photo.page_url } on flickr
+        .tags
+          - photo.tags.each do |tag|
+            %span.tag= tag
+  .clipper
+    .body
+      .content
+        %img{ :src => photo.source_url }
+        :maruku
+          #{photo.body}
