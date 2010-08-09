@@ -43,6 +43,7 @@ class FruitBowl < Sinatra::Base
 
   get '/blog/:stub' do |stub|
     @item = Post.first(:stub => stub)
+    pass unless @item
     @type = :blog
     haml :show
   end

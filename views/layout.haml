@@ -32,8 +32,9 @@
             \/ 
             %a{ :href => site_link(@type) }= @type
   #main
-    .clipper
-      .top
+    - if !@item.nil? || !(@items.nil? ||  @items.empty?)
+      .clipper
+        .top
     = yield
   #footer
     .content
