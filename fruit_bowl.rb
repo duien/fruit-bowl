@@ -53,6 +53,12 @@ class FruitBowl < Sinatra::Base
     haml :index
   end
 
+  get '/delicious/?' do
+    @items = Bookmark.by_date.limit(10)
+    @type = :delicious
+    haml :index
+  end
+
   get '/:file.css' do |file|
     content_type 'text/css'
     sass :"sass/#{file}"

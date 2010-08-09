@@ -10,7 +10,7 @@
           \//
           %a{ :href => bookmark.href } view
           \//
-          %a{ :href => "http://delicious.com/url/#{post.url_hash}" } on delicious
+          %a{ :href => "http://delicious.com/url/#{bookmark.url_hash}" } on delicious
         .tags
           - bookmark.tags.each do |tag|
             %span.tag= tag
