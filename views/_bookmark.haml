@@ -7,9 +7,9 @@
       .metadata
         .meta
           %span.date= format_date(bookmark.published_at)
-          \//
+          %span.dot &#9679;
           %a{ :href => bookmark.href } view
-          \//
+          %span.dot &#9679;
           %a{ :href => "http://delicious.com/url/#{bookmark.url_hash}" } on delicious
         .tags
           - bookmark.tags.each do |tag|

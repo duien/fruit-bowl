@@ -7,7 +7,7 @@
       .metadata
         .meta
           %span.date= format_date(post.published_at)
-          \//
+          %span.dot &#9679;
           %a{ :href => "/blog/#{post.stub}" } permalink
         .tags
           - post.tags.each do |tag|

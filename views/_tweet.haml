@@ -7,7 +7,7 @@
       .metadata
         .meta 
           %span.date= format_date(tweet.published_at)
-          \//
+          %span.dot &#9679;
           %a{ :href => "http://twitter.com/duien/status/#{tweet.status_id}" } on twitter
   .clipper
     .body
