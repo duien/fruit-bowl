@@ -1,5 +1,5 @@
 class Item
-  extend SubclassAware
+  # extend SubclassAware
   include MongoMapper::Document
 
   key :body
@@ -19,9 +19,11 @@ class Item
   end
 
   def self.update_all!
-    subclasses.collect do |subclass|
-      # puts "#{subclass}.update!"
+    [Bookmark, Photo, Share, Tweet].each do |subclass|
+    # subclasses.collect do |subclass|
       subclass.update! if subclass.respond_to? :update!
     end
+
   end
+
 end
