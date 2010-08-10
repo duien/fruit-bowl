@@ -1,8 +1,9 @@
 class Item
+  extend SubclassAware
   include MongoMapper::Document
 
   key :body
-  key :published_at, Date
+  key :published_at, Time
   key :_type
 
   def self.by_date
@@ -15,5 +16,12 @@ class Item
 
   def type
     _type.to_s.underscore
+  end
+
+  def self.update_all!
+    subclasses.collect do |subclass|
+      # puts "#{subclass}.update!"
+      subclass.update! if subclass.respond_to? :update!
+    end
   end
 end
