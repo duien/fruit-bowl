@@ -15,4 +15,8 @@
           - bookmark.tags.each do |tag|
             %span.tag= tag
   .clipper
-    .body= bookmark.body
+    .body
+      - if bookmark.body and not bookmark.body.empty?
+        .content
+          = bookmark.body
+
