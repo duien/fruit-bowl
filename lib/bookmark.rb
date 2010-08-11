@@ -7,6 +7,7 @@ class Bookmark < Item
   key :meta
   key :href
   key :tags
+  key :url_hash, :unique => true
 
   def self.by_date
     where(:published_at.lt => Time.now).sort(:published_at.desc)
@@ -16,7 +17,8 @@ class Bookmark < Item
     begin
       if needs_update?
         last_bookmark = sort(:published_at.desc).first
-        path = url[:path] + (last_bookmark ? "&fromdt=#{last_bookmark.published_at}" : '')
+        path = url[:path] + (last_bookmark ? "&fromdt=#{last_bookmark.published_at.strftime('%Y-%m-%dT%H:%m:%SZ')}" : '')
+        puts path.inspect
         response = connection.start do |http|
           request = Net::HTTP::Get.new(path)
           request.basic_auth(Config['delicious']['username'],
@@ -25,6 +27,7 @@ class Bookmark < Item
         end
 
         result = Hpricot(response)
+        puts result.search('post').length
         result.search('post').each do |post|
           create(:meta => post.attributes['meta'],
                  :href => post.attributes['href'],
@@ -32,7 +35,7 @@ class Bookmark < Item
                  :url_hash => post.attributes['hash'],
                  :tags => post.attributes['tag'].split(' '),
                  :published_at => post.attributes['time'],
-                 :body => post.attributes['extended'])
+                 :body => post.attributes['extended']) unless post.attributes['shared'] == 'no'
         end
       end
       "Bookmarks updated"
