@@ -45,6 +45,10 @@ class FruitBowl < Sinatra::Base
     haml :index
   end
 
+  get '/blog/?' do
+    redirect '/'
+  end
+
   get '/blog/:stub' do |stub|
     @item = Post.first(:stub => stub)
     pass unless @item
