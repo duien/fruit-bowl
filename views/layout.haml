@@ -32,6 +32,8 @@
             %a{ :href => prev_page } prev
           - elsif not @item
             %span.page prev
+          - else
+            &nbsp;
         %h1
           %span.site duien•com
           &#9679; 
@@ -41,6 +43,8 @@
             %a{ :href => next_page } next
           - elsif not @item
             %span.page next
+          - else
+            &nbsp;
   #main
     - if !@item.nil? || !(@items.nil? ||  @items.empty?)
       .clipper
