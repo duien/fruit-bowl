@@ -27,15 +27,21 @@
   .clipper
     #header
       #title
+        .pagination.previous
+          - if prev_page?
+            %a{ :href => prev_page } &#10913; prev
+          - elsif not @item
+            %span.page &#10913; prev
         %h1
           %span.site duien•com
           &#9679; 
           %a{ :href => site_link(@type) }= @type
-  #main
-    - if !@item.nil? || !(@items.nil? ||  @items.empty?)
-      .clipper
-        .top
-    = yield
+        .pagination.next
+          - if next_page?
+            %a{ :href => next_page } next &#10914;
+          - elsif not @item
+            %span.page next &#10914;
+  = yield
   #footer
     .content
       %p

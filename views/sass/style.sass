@@ -63,23 +63,6 @@ body
     text-decoration: none
       
 
-#header
-  +row
-  +shadow(darken($main, 10%))
-  +round_bottom(5px)
-  background: mix($main, white)
-  margin-bottom: 10px
-  font-family: $title
-  text-align: center
-  h1
-    +column
-    +grid_12
-    padding-top: 20px
-    padding-bottom: 20px
-    span.site
-      color: black
-    a:hover
-      border-bottom: 3px solid
 #navigation
   +row
   +shadow(darken($main, 10%))
@@ -101,7 +84,6 @@ body
         color: white
         font-size: 120%
         font-weight: bold
-        // border-top: 5px solid $everything
         border-bottom: 5px solid $everything
         line-height: 40px
         &:hover
@@ -145,7 +127,78 @@ body
         &:hover
           color: $reader
           background: lighten($reader, 40%)
-
+#header
+  +row
+  +shadow(darken($main, 10%))
+  +round_bottom(5px)
+  background: mix($main, white)
+  margin-bottom: 10px
+  font-family: $title
+  text-align: center
+  line-height: 60px
+  padding-top: 10px
+  padding-bottom: 10px
+  .pagination
+    +column
+    +grid_2
+    overflow: visible
+    a, span.page
+      display: block
+      font-size: 140%
+      text-decoration: none
+    a:hover
+      // font-weight: bold
+    span.page
+      color: darken($main, 10%)
+  .previous a, .previous span.page
+    border-right: 1px dashed darken($main, 10%)
+    margin-right: -10px
+  h1
+    +column
+    +grid_8
+    span.site
+      color: black
+    a:hover
+      border-bottom: 3px solid
+  .next a, .next span.page
+    border-left: 1px dashed darken($main, 10%)
+    margin-left: -10px
+#pagination
+  +row
+  +round(5px)
+  +shadow(darken($main, 10%))
+  background: mix($main, white)
+  text-align: center
+  font-family: $sans
+  font-size: 80%
+  a
+    color: black
+    text-decoration: none
+  .previous
+    +column
+    +grid_2
+    a, span.page
+      display: block
+      margin-top: 5px
+      padding-top: 5px
+      margin-bottom: 5px
+      padding-bottom: 5px
+      border-right: 1px dashed darken($main, 10%)
+    span.page
+      color: darken($main, 10%)
+  .middle
+    +column
+    +grid_8
+  .next
+    +column
+    +grid_2
+    a
+      display: block
+      margin-top: 5px
+      padding-top: 5px
+      margin-bottom: 5px
+      padding-bottom: 5px
+      border-left: 1px dashed darken($main, 10%)
 #main
   .top
     +row
