@@ -41,7 +41,11 @@
             %a{ :href => next_page } next &#10914;
           - elsif not @item
             %span.page next &#10914;
-  = yield
+  #main
+    - if !@item.nil? || !(@items.nil? ||  @items.empty?)
+      .clipper
+        .top
+    = yield
   #footer
     .content
       %p
