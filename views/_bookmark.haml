@@ -12,7 +12,10 @@
           %span.dot &#9679;
           %a{ :href => "http://delicious.com/url/#{bookmark.url_hash}" } on delicious
         .tags
+          - unless bookmark.tags.empty?
+            %strong tagged
           - bookmark.tags.each do |tag|
+            %span.dot &#9679;
             %span.tag= tag
   .clipper
     .body

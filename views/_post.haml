@@ -10,7 +10,10 @@
           %span.dot &#9679;
           %a{ :href => "/blog/#{post.stub}" } permalink
         .tags
+          - unless post.tags.empty?
+            %strong tagged
           - post.tags.each do |tag|
+            %span.dot &#9679;
             %span.tag= tag
   .clipper
     .body

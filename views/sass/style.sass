@@ -170,11 +170,7 @@ body
           +grid_6
           text-align: right
           span.tag
-            +round(3px)
-            display: inline-block
-            padding: 2px 5px
-            margin: 0 5px
-            
+            color: black
     .body
       +row
       +shadow(darken($main, 10%))
@@ -191,10 +187,8 @@ body
         .title, .metadata
           background: mix($blog, white)
           +shadow(darken($blog, 10%))
-          .meta
-            color: $blog
-          span.tag
-            background: mix(white, mix(white, $blog))
+      .meta, .tags
+        color: $blog
       .body
     &.tweet
       .banner
@@ -202,28 +196,24 @@ body
         .title, .metadata
           background: mix($twitter, white)
           +shadow(darken($twitter, 10%))
-          .meta
-            color: $twitter
+      .meta, .tags
+        color: $twitter
     &.bookmark
       .banner
         background: $delicious
         .title, .metadata
           background: mix($delicious, white)
           +shadow(darken($delicious, 10%))
-          .meta
-            color: $delicious
-          span.tag
-            background: mix(white, mix(white, $delicious))
+      .meta, .tags
+        color: $delicious
     &.photo
       .banner
         background: $flickr
         .title, .metadata
           background: mix($flickr, white)
           +shadow(darken($flickr, 10%))
-          .meta
-            color: $flickr
-          span.tag
-            background: mix(white, mix(white, $flickr))
+      .meta, .tags
+        color: $flickr
       .body
         img
           float: left
@@ -234,8 +224,8 @@ body
         .title, .metadata
           background: mix($reader, white)
           +shadow(darken($reader, 10%))
-          .meta
-            color: $reader
+      .meta
+        color: $reader
       .body
         .comment
           margin: 10px
