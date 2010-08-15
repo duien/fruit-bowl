@@ -19,9 +19,13 @@ class Item
   end
 
   def self.update_all!
-    [Bookmark, Photo, Share, Tweet].each do |subclass|
+    [Bookmark, Photo, Share, Tweet].map do |subclass|
     # subclasses.collect do |subclass|
-      subclass.update! if subclass.respond_to? :update!
+      begin
+        subclass.update! if subclass.respond_to? :update!
+      rescue
+        "Error while updating #{subclass.to_s}"
+      end
     end
 
   end
