@@ -3,18 +3,16 @@
   %link{ :rel => 'stylesheet', :type => 'text/css', :href => '/style.css' }
   %title
     duien.com
-    - unless @type == :everything
-      = "/ #{@type}"
-      - if @item
-        = "/ #{@item.title}"
+    -# - unless @type == :everything
+    = "&#9679; #{@type}"
+    - if @item
+      = "&#9679; #{@item.title}"
 %body{ :class => @type }
   .clipper
     #navigation
       %ul
-        %li.main
-          %a{ :href => '/' } everything
         %li.blog
-          %a{ :href => '/blog' } blog
+          %a{ :href => '/' } blog
         %li.twitter
           %a{ :href => '/twitter' } twitter
         %li.delicious
@@ -23,14 +21,16 @@
           %a{ :href => '/flickr' } flickr
         %li.reader
           %a{ :href => '/reader' } reader
+        %li.main
+          %a{ :href => '/everything' } everything
   .clipper
     #header
       #title
         %h1
           %span.site duien.com
-          - unless @type == :everything
-            \/ 
-            %a{ :href => site_link(@type) }= @type
+          -# - unless @type == :everything
+          &#9679; 
+          %a{ :href => site_link(@type) }= @type
   #main
     - if !@item.nil? || !(@items.nil? ||  @items.empty?)
       .clipper

@@ -33,13 +33,13 @@ class FruitBowl < Sinatra::Base
     end
   end
 
-  get '/' do
+  get '/everything/?' do
     @items = Item.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :everything
     haml :index
   end
 
-  get '/blog/?' do
+  get '/' do
     @items = Post.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
     @type = :blog
     haml :index
