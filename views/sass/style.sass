@@ -30,9 +30,6 @@ address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4,
 .clipper
   overflow: hidden
 
-blockquote
-  padding-left: 10px
-  border-left: 10px solid $main
 
 .dot
   font-size: 120%
@@ -117,7 +114,7 @@ body
         border-color: $blog
         &:hover
           color: $blog
-          background: lighten($blog, 35%)
+          background: lighten($blog, 45%)
       &.twitter a
         background: $twitter
         border-color: $twitter
@@ -192,6 +189,17 @@ body
         padding-top: 10px
         padding-bottom: 30px
         font-family: $serif
+        font-size: 110%
+        p, pre
+          padding-bottom: 10px
+          &:last-child
+            padding-bottom: 0
+        pre
+          padding-left: 10px
+          border-left: 10px solid $main
+          font-family: $mono
+          background: mix($main, white)
+          overflow: auto
     &.post
       .banner
         background: $blog
@@ -201,6 +209,9 @@ body
       .meta, .tags
         color: $blog
       .body
+        pre
+          border-color: lighten($blog, 40%)
+          background: lighten($blog, 50%)
     &.tweet
       .banner
         background: $twitter
