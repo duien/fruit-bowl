@@ -7,12 +7,13 @@
       .metadata
         .meta
           %span.date= format_date(share.published_at)
-          - if share.original_url && share.original_url != share.source_url
+          - if share.original_url
             %span.dot &#9679;
-            %a{ :href => share.original_url } view
-          - if share.source_url
+            %a{ :href => share.original_url }= "on #{share.source || share.source_url || share.original_url}"
+          - elsif share.source_url
             %span.dot &#9679;
-            %a{ :href => share.source_url }= "on #{share.source || share.source_url}"
+            %a{ :href => share.source_url }= "#{share.source || share.source_url}"
+
 
           
   .clipper
