@@ -29,18 +29,18 @@
       #title
         .pagination.previous
           - if prev_page?
-            %a{ :href => prev_page } &#10913; prev
+            %a{ :href => prev_page } prev
           - elsif not @item
-            %span.page &#10913; prev
+            %span.page prev
         %h1
           %span.site duien•com
           &#9679; 
           %a{ :href => site_link(@type) }= @type
         .pagination.next
           - if next_page?
-            %a{ :href => next_page } next &#10914;
+            %a{ :href => next_page } next
           - elsif not @item
-            %span.page next &#10914;
+            %span.page next
   #main
     - if !@item.nil? || !(@items.nil? ||  @items.empty?)
       .clipper

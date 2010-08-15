@@ -43,22 +43,22 @@ a
 
 body
   background: $main
-  &.everything #header, &.everything #header a
+  &.everything #header h1, &.everything #header h1 a, &.everything #header .next a:hover
     color: $everything
     text-decoration: none
-  &.blog #header, &.blog #header a
+  &.blog #header h1, &.blog #header h1 a, &.blog #header .next a:hover
     color: $blog
     text-decoration: none
-  &.twitter #header, &.twitter #header a
+  &.twitter #header h1, &.twitter #header h1 a, &.twitter #header .next a:hover
     color: $twitter
     text-decoration: none
-  &.delicious #header, &.delicious #header a
+  &.delicious #header h1, &.delicious #header h1 a, &.delicious #header .next a:hover
     color: $delicious
     text-decoration: none
-  &.flickr #header, &.flickr #header a
+  &.flickr #header h1, &.flickr #header h1 a, &.flickr #header .next a:hover
     color: $flickr
     text-decoration: none
-  &.reader #header, &.reader #header a
+  &.reader #header h1, &.reader #header h1 a, &.reader #header .next a:hover
     color: $reader
     text-decoration: none
       
@@ -144,15 +144,21 @@ body
     overflow: visible
     a, span.page
       display: block
-      font-size: 140%
+      font-size: 120%
       text-decoration: none
+      color: black
+      font-family: $sans
+      font-weight: bold
+      margin-left: -10px
+      margin-right: -10px
     a:hover
-      // font-weight: bold
+      font-family: $title
+      font-weight: normal
+      font-size: 140%
     span.page
-      color: darken($main, 10%)
+      color: darken($main, 5%)
   .previous a, .previous span.page
     border-right: 1px dashed darken($main, 10%)
-    margin-right: -10px
   h1
     +column
     +grid_8
@@ -162,7 +168,6 @@ body
       border-bottom: 3px solid
   .next a, .next span.page
     border-left: 1px dashed darken($main, 10%)
-    margin-left: -10px
 #pagination
   +row
   +round(5px)
