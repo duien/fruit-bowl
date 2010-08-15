@@ -86,7 +86,7 @@ class FruitBowl < Sinatra::Base
   def site_link(site)
     case site
     when :blog
-      '/blog'
+      '/'
     when :twitter
       'http://twitter.com/duien'
     when :delicious
