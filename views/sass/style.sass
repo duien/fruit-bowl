@@ -14,6 +14,9 @@ $flickr: #fc1c84
 $reader: #fb8417
 $main: #eeeeee
 
+$link: $delicious
+$visited: #793479
+
 /* FONTS */
 $sans: sans-serif
 $serif: serif
@@ -30,9 +33,13 @@ address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4,
 .clipper
   overflow: hidden
 
+a
+  color: $link
+  &:visited
+    color: $visited
 
 .dot
-  font-size: 120%
+  // font-size: 120%
 
 body
   background: $main
@@ -78,8 +85,7 @@ body
   +shadow(darken($main, 10%))
   background: mix($main, white)
   font-family: $sans
-  margin-top: 10px
-  +round_top(5px)
+  margin-top: 20px
   overflow: hidden
   ul
     li
@@ -91,11 +97,11 @@ body
         text-decoration: none
         text-align: center
         margin: 0 -10px
-        padding: 5px 10px
+        padding: 5px 10px 0
         color: white
         font-size: 120%
         font-weight: bold
-        border-top: 5px solid $everything
+        // border-top: 5px solid $everything
         border-bottom: 5px solid $everything
         line-height: 40px
         &:hover
