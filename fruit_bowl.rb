@@ -95,6 +95,8 @@ class FruitBowl < Sinatra::Base
       'http://flickr.com/photos/duien'
     when :reader
       'http://www.google.com/reader/shared/price.emily'
+    when :everything
+      '/everything'
     end
   end
 
