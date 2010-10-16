@@ -1,5 +1,6 @@
 @import 'grid'
 @import 'round'
+@import 'font'
 
 =shadow($color)
   -moz-box-shadow: 0 0 5px $color
@@ -18,8 +19,8 @@ $link: $delicious
 $visited: #793479
 
 /* FONTS */
-$sans: sans-serif
-$serif: serif
+$sans: MuseoSans, sans-serif
+$serif: Museo, serif
 $mono: 'Anonymous Pro', monospace
 $title: Lobster, $sans
 
@@ -83,7 +84,8 @@ body
         padding: 5px 10px 0
         color: white
         font-size: 120%
-        font-weight: bold
+        font-family: Museo
+        font-weight: 700
         border-bottom: 5px solid $everything
         line-height: 40px
         &:hover
@@ -147,8 +149,8 @@ body
       font-size: 120%
       text-decoration: none
       color: black
-      font-family: $sans
-      font-weight: bold
+      font-family: Museo 
+      font-weight: 300
       margin-left: -10px
       margin-right: -10px
     a:hover
@@ -222,6 +224,11 @@ body
         h2
           +column
           +grid_12
+          font-family: MuseoSans
+          font-weight: normal
+          a
+            font-family: Museo
+            text-decoration: none
       .metadata
         +row
         font-size: 80%
@@ -240,6 +247,9 @@ body
           +column
           +grid_8
           text-align: right
+          strong
+            font-family: Museo
+            font-weight: 700
           span.tag
             color: black
     .body
@@ -264,6 +274,9 @@ body
           font-family: $mono
           background: mix($main, white)
           overflow: auto
+        code
+          font-family: $mono
+          font-size: 100%
     &.post
       .banner
         background: $blog
@@ -276,12 +289,16 @@ body
         pre
           border-color: lighten($blog, 40%)
           background: lighten($blog, 50%)
+        code
+          background: lighten($blog, 50%)
     &.tweet
       .banner
         background: $twitter
         .title, .metadata
           background: mix($twitter, white)
           +shadow(darken($twitter, 10%))
+          h2 a
+            color: $twitter * 0.6
       .meta, .tags
         color: $twitter
     &.bookmark
