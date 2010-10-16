@@ -19,10 +19,22 @@ $link: $delicious
 $visited: #793479
 
 /* FONTS */
-$sans: MuseoSans, Helvetica, "Helvetica Neue", Arial, sans-serif
-$serif: Museo, Helvetica, "Helvetica Neue", Arial, serif
-$mono: 'Anonymous Pro', monospace
-$title: Lobster, $sans
+=sans($style="")
+  font-family: 'MuseoSans500'+$style, Helvetica, "Helvetica Neue", Arial, sans-serif
+  font-weight: normal
+  font-style: normal
+=serif($weight=500)
+  font-family: 'Museo'+$weight, Helvetica, "Helvetica Neue", Arial, serif
+  font-weight: normal
+  font-style: normal
+=mono
+  font-family: 'AnonymousPro', monospace
+  font-weight: normal
+  font-style: normal
+=title
+  font-family: Lobster, 'MuseoSans500', Helvetica, "Helvetica Neue", Arial, sans-serif
+  font-weight: normal
+  font-style: normal
 
 address, blockquote, body, center, dir, div, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, isindex, menu, noframes, noscript, ol, p, pre, table, ul
   margin: 0
@@ -68,7 +80,7 @@ body
   +row
   +shadow(darken($main, 10%))
   background: mix($main, white)
-  font-family: $sans
+  +sans 
   margin-top: 20px
   overflow: hidden
   ul
@@ -84,14 +96,12 @@ body
         padding: 5px 10px 0
         color: white
         font-size: 120%
-        font-family: $serif
-        font-weight: 700
+        +serif(700)
         border-bottom: 5px solid $everything
         line-height: 40px
         &:hover
           background: white
-          font-family: $title
-          font-weight: normal
+          +title
           font-size: 140%
       &.main a
         background: $everything
@@ -135,7 +145,7 @@ body
   +round_bottom(5px)
   background: mix($main, white)
   margin-bottom: 10px
-  font-family: $title
+  +title
   text-align: center
   line-height: 60px
   padding-top: 10px
@@ -149,13 +159,11 @@ body
       font-size: 120%
       text-decoration: none
       color: black
-      font-family: $serif 
-      font-weight: 300
+      +serif(300)
       margin-left: -10px
       margin-right: -10px
     a:hover
-      font-family: $title
-      font-weight: normal
+      +title
       font-size: 140%
     span.page
       color: darken($main, 5%)
@@ -176,7 +184,7 @@ body
   +shadow(darken($main, 10%))
   background: mix($main, white)
   text-align: center
-  font-family: $sans
+  +sans
   font-size: 80%
   a
     color: black
@@ -216,7 +224,7 @@ body
     background: mix($main, white)
   .item
     .banner
-      font-family: $sans
+      +sans
       .title
         +row
         padding-top: 10px
@@ -224,15 +232,14 @@ body
         h2
           +column
           +grid_12
-          font-family: $sans
-          font-weight: normal
+          +sans
           a
-            font-family: $serif
+            +serif
             text-decoration: none
       .metadata
         +row
         font-size: 80%
-        font-family: $sans
+        +sans
         padding-bottom: 10px 
         .meta
           +column
@@ -248,8 +255,7 @@ body
           +grid_8
           text-align: right
           strong
-            font-family: $serif
-            font-weight: 700
+            +serif(700)
           span.tag
             color: black
     .body
@@ -262,7 +268,7 @@ body
         +grid_12
         padding-top: 10px
         padding-bottom: 30px
-        font-family: $serif
+        +serif(300)
         font-size: 110%
         p, pre
           margin-bottom: 10px
@@ -271,12 +277,14 @@ body
         pre
           padding: 5px 10px
           border-left: 10px solid $main
-          font-family: $mono
+          +mono 
           background: mix($main, white)
           overflow: auto
         code
-          font-family: $mono
+          +mono
           font-size: 100%
+        b, i, em, strong
+          +serif(500)
     &.post
       .banner
         background: $blog
@@ -344,7 +352,7 @@ body
   background: mix($main, white)
   padding-top: 10px
   padding-bottom: 10px
-  font-family: $sans
+  +sans
   font-size: 80%
   .content
     +column
