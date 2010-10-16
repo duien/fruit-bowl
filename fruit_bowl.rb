@@ -146,7 +146,7 @@ class FruitBowl < Sinatra::Base
     end
 
     def autolink(text, options={})
-      text.gsub(/\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))/, link_to("\\1", "\\1", :class => 'link')).gsub(/( |^)@(\w+)/, "\\1" + link_to("@\\2", "http://www.twitter.com/\\2", :class => 'user'))
+      text.gsub(/\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s“”]|\/)))/, link_to("\\1", "\\1", :class => 'link')).gsub(/( |^)@(\w+)/, "\\1" + link_to("@\\2", "http://www.twitter.com/\\2", :class => 'user'))
     end
 
   end
