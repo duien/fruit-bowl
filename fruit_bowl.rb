@@ -139,6 +139,16 @@ class FruitBowl < Sinatra::Base
       date ? date.strftime('%b %d, %Y') : "UNPUBLISHED"
     end
 
+    def link_to(text, url, options={})
+      options[:href] = url
+      option_string = options.map{ |key, value| %Q[#{key}="#{value}"] }.join(' ') 
+      %Q[<a #{option_string}>#{text}</a>]
+    end
+
+    def autolink(text, options={})
+      text.gsub(/\b(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))/, link_to("\\1", "\\1", :class => 'link')).gsub(/( |^)@(\w+)/, "\\1" + link_to("@\\2", "http://www.twitter.com/\\2", :class => 'user'))
+    end
+
   end
 
 end
