@@ -285,6 +285,11 @@ body
           font-size: 100%
         b, i, em, strong
           +serif(500)
+        h1, h2, h3, h4, h5, h6
+          // Hopefully only h4 and below will appear, but at least this way
+          // bigger ones aren't ugly
+          +sans
+
     &.post
       .banner
         background: $blog
@@ -299,6 +304,19 @@ body
           background: lighten($blog, 50%)
         code
           background: lighten($blog, 50%)
+        h1, h2, h3, h4, h5, h6
+          .num
+            background: lighten($blog, 40%)
+            padding: 0 5px
+        h3
+          margin-bottom: 5px
+          background: lighten($blog, 50%)
+          border-bottom: 2px solid lighten($blog, 40%)
+        h4
+          margin-bottom: 5px
+          background: lighten($blog, 50%)
+          border-bottom: 2px solid lighten($blog, 40%)
+          
     &.tweet
       .banner
         background: $twitter
