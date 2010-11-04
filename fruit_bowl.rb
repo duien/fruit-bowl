@@ -1,10 +1,4 @@
 $KCODE = "U"
-require 'logger'
-require 'sinatra/base'
-require 'active_support'
-require 'haml'
-require 'mongo_mapper'
-# require 'classy'
 
 require 'lib/config'
 require 'lib/item'

@@ -1,3 +1,5 @@
-require 'fruit_bowl'
+require "bundler"
+Bundler.require
 
+require 'fruit_bowl'
 run FruitBowl
