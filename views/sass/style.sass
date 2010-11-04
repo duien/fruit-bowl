@@ -74,6 +74,9 @@ body
   &.reader #header h1, &.reader #header h1 a, &.reader #header .pagination a:hover
     color: $reader
     text-decoration: none
+  &.admin #header h1, &.admin #header h1 a, &.admin #header .pagination a:hover
+    color: $everything
+    text-decoration: none
       
 
 #navigation
@@ -360,6 +363,16 @@ body
           margin: 10px
           padding: 10px
           background: mix($reader, white)
+    &.section
+      .banner
+        background: $everything
+        .title, .metadata
+          background: mix($everything, white)
+          +shadow(darken($everything, 10%))
+          h2 a
+            color: $everything * 0.6
+      .meta, .tags
+        color: $everything
     &:last-child > .clipper > .body
       +round_bottom(5px)
       margin-bottom: 20px

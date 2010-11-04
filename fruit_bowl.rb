@@ -86,6 +86,12 @@ class FruitBowl < Sinatra::Base
     sass :"sass/#{file}"
   end
 
+  get '/admin/?' do
+    # authenticate somehow
+    @posts = Post.all
+    haml :'admin/index', :layout => :'admin/layout'
+  end
+
   private
 
   helpers do

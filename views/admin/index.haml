@@ -1,0 +1,22 @@
+.item.section
+  .banner
+    .clipper
+      .title
+        %h2 Unpublished Posts
+  .clipper
+    .body
+      .content
+        %ul
+          - @posts.each do |post|
+            %li= post.title
+.item.section
+  .banner
+    .clipper
+      .title
+        %h2 Published Posts
+  .clipper
+    .body
+      .content
+        %ul
+          - @posts.each do |post|
+            %li= post.title
