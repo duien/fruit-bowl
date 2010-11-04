@@ -12,8 +12,7 @@ GEM
     i18n (0.4.2)
     jnunemaker-validatable (1.8.4)
       activesupport (>= 2.3.4)
-    maruku (0.6.0)
-      syntax (>= 1.0.0)
+    kramdown (0.12.0)
     mime-types (1.16)
     mongo (1.1.1)
       bson (>= 1.1.1)
@@ -29,7 +28,6 @@ GEM
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
-    syntax (1.0.0)
     tilt (1.1)
     xml-magic (0.1.1)
 
@@ -42,7 +40,7 @@ DEPENDENCIES
   haml
   hpricot
   i18n
-  maruku
+  kramdown
   mongo_mapper
   shotgun
   sinatra
