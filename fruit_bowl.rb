@@ -81,6 +81,32 @@ class FruitBowl < Sinatra::Base
     haml :index
   end
 
+  get '/feed.xml' do
+    content_type 'application/rss+xml'
+    @items = Post.by_date.limit(params[:per_page]).skip(params[:page] * params[:per_page])
+    builder = Builder::XmlMarkup.new
+    builder.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
+    builder do
+      builder.rss :version => "2.0" do
+        builder.channel do
+          builder.title "duien•com"
+          builder.link "http://duien.com/"
+
+          @items.each do |item|
+            builder.item do
+              builder.title item.title
+              builder.link "http://duien.com/blog/#{item.stub}"
+              builder.description Kramdown::Document.new(item.body).to_html
+              builder.pubDate item.published_at.rfc822()
+              builder.guid "http://duien.com/blog/#{item.stub}"
+            end
+          end
+        end
+      end
+    end
+    builder.target!
+  end
+
   get '/:file.css' do |file|
     content_type 'text/css'
     sass :"sass/#{file}"

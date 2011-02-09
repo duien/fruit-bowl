@@ -4,6 +4,7 @@ GEM
     activesupport (3.0.1)
     bson (1.1.1)
     bson_ext (1.1.1)
+    builder (2.1.2)
     flickr_fu (0.3.0)
       mime-types (> 0.0.0)
       xml-magic (> 0.0.0)
@@ -36,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
+  builder (~> 2.0)
   flickr_fu
   haml
   hpricot
