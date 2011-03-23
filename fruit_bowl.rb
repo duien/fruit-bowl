@@ -7,16 +7,22 @@ Dir['lib/*'].each{ |file| require file }
 class FruitBowl < Sinatra::Base
   configure do
     Log = Logger.new(STDOUT)
-    # MongoMapper.connection = Mongo::Connection.new('localhost', 27017, :logger => Log)
-    # MongoMapper.database = 'fruit-bowl'
-
-    config = { environment => { 'uri' => ENV['MONGOHQ_URL'] || "mongodb://localhost/fruit-bowl" }}
-    MongoMapper.setup(config, environment, :logger => Log)
 
     set :root, File.dirname(__FILE__)
     enable :static
     enable :show_exceptions if development?
   end
+
+  configure :development do
+     config = { environment => { 'uri' => "mongodb://localhost/fruit-bowl" }}
+     MongoMapper.setup(config, environment, :logger => Log)
+  end
+
+  configure :production do
+    config = { environment => { 'uri' => ENV['MONGOHQ_URL'] || "mongodb://localhost/fruit-bowl" }}
+    MongoMapper.setup(config, environment)
+  end
+
 
   before do
     content_type :html, 'charset' => 'utf-8'
