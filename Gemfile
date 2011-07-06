@@ -10,3 +10,7 @@ gem "flickr_fu"
 gem "hpricot"
 gem "bson_ext"
 gem 'builder', '~> 2.0'
+
+group :development do
+  gem "heroku"
+end
