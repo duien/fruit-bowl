@@ -8,3 +8,8 @@ namespace :update do
     Item.update_all!
   end
 end
+
+# this is called by heroku
+task :cron do
+  Rake::Task["update:all"].invoke
+end
