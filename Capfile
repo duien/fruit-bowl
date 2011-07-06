@@ -1,4 +1,7 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+require 'bundler/capistrano'
+
+set :bundle_flags,    "--quiet"
 
 set :application, 'fruit-bowl'
 set :deploy_to, "/opt/#{application}"
